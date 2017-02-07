@@ -1,11 +1,11 @@
 px.configImport({"pxFramework:":"pixi.min.js"});
 
-px.import("px:scene.1.js").then( function ready(scene) {
+px.import({ scene: 'px:scene.1.js',
+            pixi: 'pxFramework:pixi.js' }).then( function ready(scene) {
   var app = new PIXI.Application(800, 600, {backgroundColor : 0x1099bb});
-  document.body.appendChild(app.view);
 
   // create a new Sprite from an image path
-  var bunny = PIXI.Sprite.fromImage('required/assets/basics/bunny.png')
+  var bunny = PIXI.Sprite.fromImage('https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png')
 
   // center the sprite's anchor point
   bunny.anchor.set(0.5);
@@ -25,19 +25,6 @@ px.import("px:scene.1.js").then( function ready(scene) {
   });
 
 }
-
-function updateSize(w, h) {
-/*
-  bg.w = w;
-  bg.h = h;
-  bgShade.w = w;
-  bgShade.h = h;
-*/
-  txt1.y = h-txt1.h;
-}
-
-scene.on("onResize", function(e){updateSize(e.w,e.h);});
-updateSize(scene.getWidth(), scene.getHeight());
 
 doIt();
 
